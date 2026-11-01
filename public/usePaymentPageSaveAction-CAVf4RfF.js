@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./react-Augu_vA3.js";import{er as n,tr as r}from"./colors-0MwZ3ngc.js";var i=e(t(),1),a=r(null);function o(e,t=[]){let r=n(a);(0,i.useEffect)(()=>(r(e),()=>r(null)),t)}export{o as n,a as t};

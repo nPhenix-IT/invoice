@@ -1,0 +1,1 @@
+var e=(e,t=[])=>{let n=Object.entries(e?.errors??{}).find(([e,n])=>!t.includes(e)&&!!n?.length)?.[1];return Array.isArray(n)?n[0]:n};export{e as t};

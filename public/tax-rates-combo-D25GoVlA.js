@@ -1,0 +1,1 @@
+function e(e,t){if(!t)return``;let n=t.replace(`name`,`rate`);return e&&e[n]!==void 0?`${e[t]}||${e[n]}`:``}export{e as t};

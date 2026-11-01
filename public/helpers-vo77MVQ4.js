@@ -1,0 +1,1 @@
+function e(e){return e.replace(/[-_]+/g,` `).replace(/\s+/g,` `).trim().replace(/\b\w/g,e=>e.toUpperCase())}function t(t,n=`Untitled document`){let r=t.name.replace(/\.[^/.]+$/,``).trim();return r?e(r):n}function n(e,t){return!!(e&&!t&&e.pro_rata_raw>0)}export{t as n,n as t};

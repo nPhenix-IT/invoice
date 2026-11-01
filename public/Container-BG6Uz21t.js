@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./jsx-runtime-CTknu7_t.js";import{t as n}from"./Breadcrumbs-BL0yE53A.js";var r=e(t(),1);function i(e){return(0,r.jsxs)(`div`,{className:`flex justify-center`,children:[(0,r.jsx)(n,{pages:e.breadcrumbs}),(0,r.jsx)(`div`,{className:`container max-w-3xl space-y-6 ${e.className}`,children:e.children})]})}export{i as t};

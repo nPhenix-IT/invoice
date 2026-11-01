@@ -1,0 +1,1 @@
+var e=function(e){return e.Product=`1`,e.Task=`2`,e.UnpaidFee=`3`,e.PaidFee=`4`,e.LateFee=`5`,e.Expense=`6`,e}({});export{e as t};

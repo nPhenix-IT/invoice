@@ -1,0 +1,1 @@
+import{Pr as e,l as t,x as n}from"./colors-0MwZ3ngc.js";function r(){let{data:r}=e({queryKey:[`/api/v1/designs`,`?template=true&status=active&sort=name|asc`],queryFn:()=>n(`GET`,t(`/api/v1/designs?template=true&status=active&sort=name|asc`)).then(e=>e.data.data),staleTime:1/0});return{shouldBeVisible:r!==void 0&&r.length>0}}export{r as t};

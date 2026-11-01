@@ -1,0 +1,1 @@
+function e(e,t){return t.replace(`$body`,e)}export{e as t};

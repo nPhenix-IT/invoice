@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./jsx-runtime-CTknu7_t.js";import{ct as n}from"./forms-2V6SBcK1.js";var r=e(n(),1),i=e(t(),1);function a({children:e,className:t}){return(0,i.jsx)(`div`,{className:(0,r.default)(`inline-flex items-center space-x-2`,t),children:e})}export{a as t};

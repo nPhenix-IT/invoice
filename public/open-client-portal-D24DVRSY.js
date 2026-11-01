@@ -1,0 +1,1 @@
+function e(e){if(e.invitations.length>0){let t=e.client?e.client:``;return`${e.invitations[0].link}?silent=true${t?`&client_hash=${t.client_hash}`:``}`}return null}function t(t){let n=e(t);n&&window.open(n,`_blank`)?.focus()}export{t as n,e as t};

@@ -1,0 +1,1 @@
+var e=e=>e?e.trimEnd():``;function t(e){return e.filter(e=>e.startDate.length>0&&e.endDate.length>0).map(e=>`${e.column},${e.startDate},${e.endDate}`).join(`|`)}export{e as n,t};

@@ -1,0 +1,1 @@
+function e(e){return Number(e?.amount||0)-Number(e?.total_taxes||0)}export{e as t};

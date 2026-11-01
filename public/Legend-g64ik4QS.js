@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./jsx-runtime-CTknu7_t.js";import{r as n}from"./colors-0MwZ3ngc.js";var r=e(t(),1);function i({children:e}){return(0,r.jsx)(`div`,{className:`text-sm mb-2`,style:{color:n().$22,fontWeight:500},children:e})}export{i as t};

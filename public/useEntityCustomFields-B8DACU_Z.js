@@ -1,0 +1,1 @@
+import{dr as e,jn as t}from"./colors-0MwZ3ngc.js";import{n}from"./CustomField-9q32mbX2.js";function r(r){let[i]=e(),a=t()?.custom_fields,{entity:o}=r,s=[];if(a)for(let e=1;e<5;e++){let t=a[o+e.toString()]?n(a[o+e.toString()]).label():i(`custom${e.toString()}`);s.push(t)}return s}export{r as t};

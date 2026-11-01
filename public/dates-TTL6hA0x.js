@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./dayjs.min-wxmwWtJd.js";var n=e(t(),1),r=()=>(0,n.default)().format(`YYYY-MM-DD`),i=(e,t)=>(0,n.default)(e||r()).add(t,`day`).format(`YYYY-MM-DD`);export{r as n,i as t};

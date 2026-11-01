@@ -1,0 +1,1 @@
+import{i as e}from"./colors-0MwZ3ngc.js";function t(){let{data:t}=e();return e=>{if(t?.timezones&&e){let n=t.timezones.find(t=>t.id===e);if(n)return{timeZoneId:n.id,timeZone:n.name}}return{timeZoneId:`32`,timeZone:`Europe/Lisbon`}}}export{t};

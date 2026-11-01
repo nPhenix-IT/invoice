@@ -1,0 +1,1 @@
+var e=`2000-01-01`;function t(e){return[e?.[0]?.format(`YYYY-MM-DD`)??``,e?.[1]?.format(`YYYY-MM-DD`)??``]}function n(e){let[n,r]=t(e);return n&&r?[n,r]:null}function r(e){if(!e?.[0]||!e[1])return null;let[t,n]=e[0].isAfter(e[1])?[e[1],e[0]]:[e[0],e[1]];return[t.format(`YYYY-MM-DD`),n.format(`YYYY-MM-DD`)]}export{r as i,n,t as r,e as t};

@@ -1,0 +1,1 @@
+import{jn as e}from"./colors-0MwZ3ngc.js";function t(){let t=e();return e=>!e.invoice_id||!t?.invoice_task_lock}export{t};

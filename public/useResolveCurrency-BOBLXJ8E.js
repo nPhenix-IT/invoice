@@ -1,0 +1,1 @@
+import{t as e}from"./useCurrencies-DA5HE0YT.js";function t(t){let n=e(),{resolveBy:r}=t||{};return r===`code`?e=>n.find(t=>t.code===e):e=>n.find(t=>t.id==e)}export{t};

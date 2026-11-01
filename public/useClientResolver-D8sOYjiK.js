@@ -1,0 +1,1 @@
+import{di as e,l as t,x as n}from"./colors-0MwZ3ngc.js";function r(){let r=e();return{find:e=>r.fetchQuery({queryKey:[`/api/v1/clients`,e],queryFn:()=>n(`GET`,t(`/api/v1/clients/:id?include=group_settings`,{id:e})).then(e=>e.data.data),staleTime:1/0})}}export{r as t};

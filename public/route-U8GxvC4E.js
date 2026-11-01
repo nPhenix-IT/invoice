@@ -1,0 +1,1 @@
+function e(e,t={}){let n=e;for(let e in t)n=n.replace(`:${e}`,t[e]);return n}function t(e,t={}){let n=`${window.location.origin}${e}`;for(let e in t)n=n.replace(`:${e}`,t[e]);return console.log(n),n}export{t as n,e as t};

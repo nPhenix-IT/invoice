@@ -1,0 +1,1 @@
+function e(){return[`Plain`,`Clean`,`Bold`,`Modern`]}export{e as t};

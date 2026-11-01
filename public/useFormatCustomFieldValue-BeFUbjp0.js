@@ -1,0 +1,1 @@
+import{b as e,dr as t,jn as n,s as r}from"./colors-0MwZ3ngc.js";import{i}from"./CustomField-9q32mbX2.js";function a(){let[a]=t(),o=n(),{dateFormat:s}=e(),c=o?.custom_fields;return(e,t)=>{if(c&&c[e]){let n=c[e];if(n?.split(`|`)[1]===i.Date&&t)return r(t,s);if(n?.split(`|`)[1]===i.Switch)return a(t==`yes`||t==`true`||t==`1`?`yes`:`no`)}return t}}export{a as t};

@@ -1,0 +1,1 @@
+var e=function(e){return e.Viewed=`-1`,e.Draft=`1`,e.Sent=`2`,e.Partial=`3`,e.Applied=`4`,e}({});export{e as t};

@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./react-Augu_vA3.js";import{dr as n,jn as r}from"./colors-0MwZ3ngc.js";var i=e(t(),1);function a(e,t=!0){let[a]=n();r();let[o,s]=(0,i.useState)(t?a(e)||``:e),c=()=>{let e=``;return e=`Invoice Ninja`,`${e}: ${o}`};return(0,i.useEffect)(()=>{document.title=c()},[o]),{documentTitle:o,setDocumentTitle:s}}export{a as t};

@@ -1,0 +1,1 @@
+import{f as e,l as t}from"./dist-B0uS0W1R.js";function n(n){let{entity:r,editPageTabs:i}=n,a=t(),o=e().id||``,s=a.pathname.startsWith(`/${r}s`),c=o&&a.pathname.includes(o),l=a.pathname.endsWith(`/edit`),u=i?.some(e=>a.pathname.endsWith(`/${e}`)),d=s&&c&&(u||l),f=s&&c&&!l&&!u;return{isEditPage:d,isShowPage:f,isEditOrShowPage:d||f}}export{n as t};

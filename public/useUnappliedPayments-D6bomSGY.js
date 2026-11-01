@@ -1,0 +1,1 @@
+import{Pr as e,l as t,x as n}from"./colors-0MwZ3ngc.js";function r({clientId:r}){let{data:i=[],isLoading:a}=e({queryKey:[`/api/v1/payments`,r,`partially_unapplied`],queryFn:()=>n(`GET`,t(`/api/v1/payments?client_id=:client_id&client_status=partially_unapplied`,{client_id:r})).then(e=>e.data.data),enabled:!!r,staleTime:1/0});return{payments:i,isLoading:a}}export{r as t};

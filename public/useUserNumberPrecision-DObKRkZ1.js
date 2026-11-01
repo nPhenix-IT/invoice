@@ -1,0 +1,1 @@
+import{on as e}from"./colors-0MwZ3ngc.js";function t(){let t=e();return t?.number_precision&&t?.number_precision>0&&t?.number_precision<=100?t.number_precision:2}export{t};

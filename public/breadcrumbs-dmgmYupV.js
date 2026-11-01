@@ -1,0 +1,1 @@
+var e=(e,t)=>e?`#${e}`:t,t=(e,t,n=40)=>{let r=(e??``).replace(/\s+/g,` `).trim();if(!r)return t;let i=Array.from(r);return i.length<=n?r:`${i.slice(0,n).join(``).trimEnd()}…`};export{t as n,e as t};

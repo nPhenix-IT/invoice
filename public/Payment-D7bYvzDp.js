@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./jsx-runtime-CTknu7_t.js";import{d as n}from"./dist-B0uS0W1R.js";import{t as r}from"./StepTiming-DzQFkgAo.js";var i=e(t(),1);function a(){let{wizard:e}=n();return(0,i.jsx)(r,{wizard:e})}export{a as default};

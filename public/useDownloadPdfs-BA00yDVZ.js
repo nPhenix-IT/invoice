@@ -1,0 +1,1 @@
+import{S as e,di as t,l as n,x as r}from"./colors-0MwZ3ngc.js";function i({entity:i}){let a=t();return t=>{t.length&&(e.processing(),a.fetchQuery({queryKey:[`/api/v1/${i}s/bulk`],queryFn:()=>r(`POST`,n(`/api/v1/${i}s/bulk`),{action:`bulk_download`,ids:t}).then(t=>(e.success(`downloaded_entities`),t))}))}}export{i as t};

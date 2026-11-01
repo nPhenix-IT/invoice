@@ -1,0 +1,1 @@
+import{jn as e}from"./colors-0MwZ3ngc.js";function t(){return e()?.settings.e_invoice_type===`VERIFACTU`}export{t};

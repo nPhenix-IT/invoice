@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./jsx-runtime-CTknu7_t.js";import{f as n,t as r}from"./dist-B0uS0W1R.js";import{t as i}from"./route-U8GxvC4E.js";var a=e(t(),1);function o(){let{id:e}=n();return(0,a.jsx)(r,{to:i(`/products/:id/edit`,{id:e})})}export{o as default};

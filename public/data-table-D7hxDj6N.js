@@ -1,0 +1,1 @@
+import{tr as e}from"./colors-0MwZ3ngc.js";var t=e(void 0),n=e(void 0);export{t as n,n as t};
