@@ -1,0 +1,44 @@
+name: PDF quote manual-hours regression
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/Services/Pdf/PdfBuilder.php'
+      - 'tests/Unit/PdfManualQuoteTaskHoursTest.php'
+      - '.github/workflows/pdf_quote_manual_hours.yml'
+  push:
+    branches: [fix/pdf-manual-quote-task-hours]
+    paths:
+      - 'app/Services/Pdf/PdfBuilder.php'
+      - 'tests/Unit/PdfManualQuoteTaskHoursTest.php'
+      - '.github/workflows/pdf_quote_manual_hours.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  php-regression:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, xml, bcmath, gd, curl, zip, mysql, sqlite3, redis
+          tools: composer:v2
+          coverage: none
+
+      - name: PHP syntax checks
+        run: |
+          php -l app/Services/Pdf/PdfBuilder.php
+          php -l tests/Unit/PdfManualQuoteTaskHoursTest.php
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: PDF hours tests
+        run: vendor/bin/phpunit tests/Unit/PdfManualQuoteTaskHoursTest.php
