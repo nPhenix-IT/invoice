@@ -215,11 +215,12 @@
         margin-left: 20px;
     }
 
+    /* Compact table layout: 17 product rows + task and totals fit on A4. */
     [data-ref="table"] {
         padding-left: 2rem;
         padding-right: 0rem;
-        margin-top: 1rem;
-        margin-bottom: 5px;
+        margin-top: 0.55rem;
+        margin-bottom: 2px;
         min-width: 100%;
         table-layout: fixed;
         overflow-wrap: break-word;
@@ -238,7 +239,8 @@
 
     [data-ref="table"]>thead>tr>th {
         font-size: 1.2rem;
-        padding: 1rem;
+        padding: 0.55rem 0.75rem;
+        line-height: 1.2;
         background: var(--primary-color);
         color: white;
     }
@@ -259,7 +261,9 @@
     [data-ref="table"]>tbody>tr>td {
         background-color: #F7F7F7;
         border-bottom: 1px solid var(--primary-color);
-        padding: 1rem;
+        padding: 0.4rem 0.75rem;
+        line-height: 1.25;
+        vertical-align: middle;
     }
 
     [data-ref="table"]>tbody>tr>td.left-radius {
@@ -271,7 +275,7 @@
     }
 
     #table-totals {
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: 80px;
@@ -288,13 +292,13 @@
 
     #table-totals>.totals-table-right-side>*> :nth-child(1) {
         text-align: $dir_text_align;
-        margin-top: .75rem;
+        margin-top: .3rem;
     }
 
     #table-totals>.totals-table-right-side>*> :not([hidden])~ :not([hidden]) {
         --tw-space-y-reverse: 0;
-        margin-top: calc(.75rem * calc(1 - var(--tw-space-y-reverse)));
-        margin-bottom: calc(.75rem * var(--tw-space-y-reverse));
+        margin-top: calc(.3rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(.3rem * var(--tw-space-y-reverse));
     }
 
     #table-totals>.totals-table-right-side>*> :nth-child(2) {
