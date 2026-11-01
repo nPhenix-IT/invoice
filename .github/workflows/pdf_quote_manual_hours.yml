@@ -37,6 +37,12 @@ jobs:
           php -l app/Services/Pdf/PdfBuilder.php
           php -l tests/Unit/PdfManualQuoteTaskHoursTest.php
 
+      - name: Prepare Laravel test paths
+        run: |
+          mkdir -p bootstrap/cache
+          mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/framework/testing
+          cp .env.example .env
+
       - name: Install PHP dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
 
