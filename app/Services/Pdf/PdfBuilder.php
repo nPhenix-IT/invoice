@@ -940,6 +940,8 @@ class PdfBuilder
             $table_type = "product_quote_columns";
         }
 
+        $hide_manual_task_rate = $type === '$task' && $this->hasManualQuoteTasks();
+
         foreach ($items as $row) {
             $element = ['element' => 'tr', 'elements' => []];
             //checks if we have custom columns in the options array with key $product/$task - looks like unused functionality
@@ -966,6 +968,12 @@ class PdfBuilder
             } else {
 
                 foreach ($this->service->config->pdf_variables[$table_type] as $key => $cell) {
+                    // A manually-priced quote has no hourly rate column in its PDF.
+                    // Keep invoices and legacy hourly-only quotes unchanged.
+                    if ($hide_manual_task_rate && in_array($cell, ['$task.rate', '$task.cost'], true)) {
+                        continue;
+                    }
+
                     // We want to keep aliases like these:
                     // $task.cost => $task.rate
                     // $task.quantity => $task.hours
@@ -975,7 +983,7 @@ class PdfBuilder
                     } elseif ($cell == '$product.discount' && !$this->service->company->enable_product_discount) {
                         $element['elements'][] = ['element' => 'td', 'content' => $row['$product.discount'], 'properties' => ['data-ref' => 'product_table-product.discount-td', 'style' => 'display: none;']];
                     } elseif ($cell == '$task.hours') {
-                        $element['elements'][] = ['element' => 'td', 'content' => $row['$task.quantity'], 'properties' => ['data-ref' => 'task_table-task.hours-td', 'visi' => $this->visibilityCheck($column_visibility, $cell)]];
+                        $element['elements'][] = ['element' => 'td', 'content' => $row['$task.hours'], 'properties' => ['data-ref' => 'task_table-task.hours-td', 'visi' => $this->visibilityCheck($column_visibility, $cell)]];
                     } elseif ($cell == '$product.tags') {
                         $element['elements'][] = ['element' => 'td', 'content' => $row[$cell], 'properties' => ['data-ref' => 'product_table-product.tags-td', 'visi' => $this->visibilityCheck($column_visibility, $cell)]];
                     } elseif ($cell == '$product.tax_rate1') {
@@ -1064,6 +1072,14 @@ class PdfBuilder
             if ($item->quantity > 0 || $item->cost > 0) {
                 $data[$key][$table_type . '.quantity'] = $this->service->config->formatValueNoTrailingZeroes($item->quantity);
 
+                // Display actual work hours independently from the technical billing
+                // quantity (1) used by manually-priced quote tasks.
+                if ($table_type === '$task') {
+                    $data[$key]['$task.hours'] = $this->service->config->formatValueNoTrailingZeroes(
+                        self::taskHoursForPdf($item)
+                    );
+                }
+
                 $data[$key][$table_type . '.unit_cost'] = $this->service->config->formatMoneyNoRounding($item->cost);
 
                 $data[$key][$table_type . '.net_cost'] = $this->service->config->formatMoneyNoRounding($item->net_cost);
@@ -1073,6 +1089,9 @@ class PdfBuilder
                 $data[$key][$table_type . '.line_total'] = $this->service->config->formatMoneyNoRounding($item->line_total);
             } else {
                 $data[$key][$table_type . '.quantity'] = '';
+                if ($table_type === '$task') {
+                    $data[$key]['$task.hours'] = '';
+                }
 
                 $data[$key][$table_type . '.unit_cost'] = '';
 
@@ -1176,6 +1195,37 @@ class PdfBuilder
 
     }
 
+
+    /**
+     * The hours shown on a quote are independent from its billing quantity.
+     * Legacy hourly tasks still use their original quantity as hours.
+     */
+    public static function taskHoursForPdf(object $item): float
+    {
+        return ! empty($item->manual_total)
+            ? (float) ($item->task_hours ?? 0)
+            : (float) ($item->quantity ?? 0);
+    }
+
+    /**
+     * Only remove the Rate column for quotes with manually-priced tasks.
+     * Preserve normal hourly invoices and historic hourly-only quotes.
+     */
+    private function hasManualQuoteTasks(): bool
+    {
+        if (! ($this->service->config->entity instanceof Quote)) {
+            return false;
+        }
+
+        foreach ($this->service->config->entity->line_items as $item) {
+            if ((string) ($item->type_id ?? '') === '2' && ! empty($item->manual_total)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
     * Generate the structure of table headers. (<thead/>)
     *
@@ -1208,7 +1258,14 @@ class PdfBuilder
 
         $column_visibility = $this->getColumnVisibility($this->service->config->entity->line_items, $type);
 
+        $hide_manual_task_rate = $type === 'task' && $this->hasManualQuoteTasks();
+
         foreach ($this->service->config->pdf_variables[$table_type] as $column) {
+
+            // Headers must be filtered alongside body cells to keep alignment.
+            if ($hide_manual_task_rate && in_array($column, ['$task.rate', '$task.cost'], true)) {
+                continue;
+            }
 
             if (array_key_exists($column, $aliases)) {
                 $elements[] = ['element' => 'th', 'content' => $aliases[$column] . '_label', 'properties' => ['data-ref' => "{$type}_table-" . substr($aliases[$column], 1) . '-th', 'visi' => $this->visibilityCheck($column_visibility, $column)]];
