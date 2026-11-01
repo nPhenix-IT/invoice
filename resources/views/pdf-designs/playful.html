@@ -274,15 +274,36 @@
         text-align: right;
     }
 
+    /*
+     * Display the financial totals first, then the public note below them.
+     * Keep the note outside the side-by-side totals layout, at full width.
+     */
     #table-totals {
         margin-top: 0.25rem;
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 80px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
         padding-left: 2rem;
         padding-right: 0rem;
         break-inside: avoid;
         overflow: visible !important;
+    }
+
+    #table-totals > .totals-table-right-side {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: end;
+        width: 36%;
+    }
+
+    #table-totals > :first-child {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 0.65rem;
+        padding-top: 0.55rem;
+        border-top: 1px solid #d9e4e8;
     }
 
     #table-totals .totals-table-right-side>* {
